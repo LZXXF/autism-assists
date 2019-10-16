@@ -1,0 +1,100 @@
+
+/* sign in FORM */
+
+body {
+    background-color: #f2f4f8;
+}
+
+#logreg-forms {
+    background-color: #fff!important;
+    max-width: 36rem;
+    width: 100%;
+    margin:10vh auto;
+    padding: 20px 20px;
+    /*background-color:#f3f3f3;*/
+    /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);*/
+    box-shadow: 0 4px 38px 0 rgba(22,21,55,.06), 0 0 21px 0 rgba(22,21,55,.03);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+#logreg-forms form {
+    width: 100%;
+    /*max-width: 410px;*/
+    padding: 20px;
+    margin: auto;
+}
+#logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 0px;
+    font-size: 16px;
+}
+#logreg-forms .form-control:focus { z-index: 2; }
+#logreg-forms .form-signin input[type="email"] {
+    /* border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0; */
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    /* zoom: 1; */
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 16px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0,0,0,.65);
+    padding: 10px 0px 10px 10px;
+    list-style: none;
+    /* vertical-align: top; */
+
+}
+#logreg-forms .form-signin input[type="password"] {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    /*zoom: 1;*/
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 16px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0,0,0,.65);
+    padding: 10px 0px 10px 10px;
+    list-style: none;
+    /* vertical-align: top; */
+}
+
+#logreg-forms .social-login{
+    width:390px;
+    margin:0 auto;
+    margin-bottom: 14px;
+}
+#logreg-forms .social-btn{
+    font-weight: 100;
+    color:white;
+    width:190px;
+    font-size: 0.9rem;
+}
+
+#logreg-forms a{
+    display: block;
+    padding-top:10px;
+    color:lightseagreen;
+}
+
+#logreg-form .lines{
+    width:200px;
+    border:1px solid red;
+}
+
+
+#logreg-forms button[type="submit"]{ 
+    margin-top:10px;
+    font-size: 16px;
+ }
