@@ -7,7 +7,9 @@ import Login from '@/components/Login'
 import PatientData from '@/components/PatientData'
 import Patient1 from '@/components/Patient1'
 import Test from '@/components/Test'
-import PatientEventData from '@/components/PatientEventData'
+import PatientEventData1 from '@/components/PatientEventData1'
+import PatientDataTest from '@/components/PatientDataTest'
+import Params from '@/components/Params'
 
 Vue.use(Router)
 
@@ -15,22 +17,20 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/Login',
       name: 'Login',
       component: Login,
       meta: {
         keepAlive: false
       }
-
     },
+
     {
       path: '/UserData',
       name: 'UserData',
-      component: UserData
+      component: UserData,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/LeftNavigator',
@@ -40,12 +40,18 @@ export default new Router({
     {
       path: '/PatientData',
       name: 'PatientData',
-      component: PatientData
+      component: PatientData,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/Patient1',
       name: 'Patient1',
-      component: Patient1
+      component: Patient1,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/Test',
@@ -53,9 +59,28 @@ export default new Router({
       component: Test
     },
     {
-      path: '/PatientEventData',
-      name: 'PatientEventData',
-      component: PatientEventData
+      path: '/PatientEventData1/:pid/:first_name/:last_name',
+      name: 'PatientEventData1',
+      component: PatientEventData1,
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/PatientDataTest',
+      name: 'PatientDataTest',
+      component: PatientDataTest,
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/Params/:pid',
+      name: 'Params',
+      component: Params,
+      meta: {
+        keepAlive: true
+      }
     }
   ]
 })
