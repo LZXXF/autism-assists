@@ -5,11 +5,10 @@ import UserData from '@/components/UserData'
 import LeftNavigator from '@/components/LeftNavigator'
 import Login from '@/components/Login'
 import PatientData from '@/components/PatientData'
-import Patient1 from '@/components/Patient1'
 import Test from '@/components/Test'
-import PatientEventData1 from '@/components/PatientEventData1'
-import PatientDataTest from '@/components/PatientDataTest'
+import PatientEventData from '@/components/PatientEventData'
 import Params from '@/components/Params'
+import SleepCharts from '@/components/SleepCharts'
 
 Vue.use(Router)
 
@@ -37,39 +36,34 @@ export default new Router({
       name: 'LeftNavigator',
       component: LeftNavigator
     },
-    {
-      path: '/PatientData',
-      name: 'PatientData',
-      component: PatientData,
-      meta: {
-        keepAlive: true
-      }
-    },
-    {
-      path: '/Patient1',
-      name: 'Patient1',
-      component: Patient1,
-      meta: {
-        keepAlive: true
-      }
-    },
+    
     {
       path: '/Test',
       name: 'Test',
       component: Test
     },
     {
-      path: '/PatientEventData1/:pid/:first_name/:last_name',
-      name: 'PatientEventData1',
-      component: PatientEventData1,
+      path: '/PatientEventData/:pid/:first_name/:last_name',
+      name: 'PatientEventData',
+      component: PatientEventData,
       meta: {
         keepAlive: true
       }
     },
+
     {
-      path: '/PatientDataTest',
-      name: 'PatientDataTest',
-      component: PatientDataTest,
+      path: '/SleepCharts/:pid/:first_name/:last_name',
+      name: 'SleepCharts',
+      component: SleepCharts,
+      meta: {
+        keepAlive: true
+      }
+    },
+
+    {
+      path: '/PatientData',
+      name: 'PatientData',
+      component: PatientData,
       meta: {
         keepAlive: true
       }

@@ -1,26 +1,35 @@
 <template>
   <div>
+    <h3>Please Choose a Date to View Events Data for {{this.$route.params.first_name.charAt(0).toUpperCase() + this.$route.params.first_name.slice(1)}} {{this.$route.params.last_name.charAt(0).toUpperCase() + this.$route.params.last_name.slice(1)}} </h3>
+
+    <!--
     <div>
       <select v-model="SelectedPatient">
-        <option disabled value=''>Please Select the Patient</option>
-        <option v-for="patient in patients" :value="patient">{{patient}}</option> 
+          <option disabled value=''>Please Select the Patient</option>
+          <option v-for="patient in patients" :value="patient">{{patient}}</option> 
       </select> 
     </div>
+    -->
 
-    <div>
-      <select v-model="SelectedDate">
-        <option disabled value=''>Please Select the Date</option>
-        <option v-for="d in dates" :value="d.index">{{d.date}}</option> 
+    <div style="text-align:center">
+      <select v-model="SelectedDate" style="text-align-last:center">
+          <option disabled value=''>Please Select the Date</option>
+          <option v-for="d in getDates" :value="d.index">{{d.date}}</option> 
       </select>
-    </div> 
-
-    
-    
+    </div>  
     
 
-    
+    <div v-if="SelectedDate !== null && SelectedDate>=0">
+      <h3 v-if="items[SelectedDate].activities"><b>Activities</b></h3>
+      <b-table striped hover responsive :items="items[SelectedDate].activities"></b-table>
+      <h3 v-if="items[SelectedDate].medicines"><b>Medicines</b></h3>
+      <b-table striped hover responsive :items="items[SelectedDate].medicines"></b-table>
+      <h3 v-if="items[SelectedDate].sleeps"><b>Sleeps</b></h3>
+      <b-table striped hover responsive :items="items[SelectedDate].sleeps"></b-table>
+    </div>
 
   </div>
+    
 </template>
 
 <script>
@@ -29,33 +38,34 @@ export default {
    data () {
     return {
       SelectedDate: null,
-      SelectedPatient: '',
-      dates: [{"date": "2019-07-18",
-                index: 1},
-              {"date": "2019-07-19",
-                index: 2},
-              {"date": "2019-07-21",
-                index: 3},
-              {"date": "2019-07-22",
-                index: 4},
-              {"date": "2019-07-31",
-                index: 5},
-              {"date": "2019-09-12",
-                index: 6}
-              ],
-
-      patients: ["5d2fe002f97602af0c8d5314"],
       items: []
     }
   },
+
+  computed: {
+    getDates() {
+      var dates = [];
+      for (var i = 0; i < this.items.length; i++) {
+        dates[i] = {date: this.items[i].created_date, index: i};
+      }
+      return dates;
+    }
+  },
+
   created () {
+    var pid = this.$route.params.pid;
+    var url = 'https://www.snickies.com/thompson/patient/events?key=lHKJCBuCrsxq8eux3QHywNL84QCWd5lKG046aBungs5&pid=' + pid;
     axios
-      .get('https://www.snickies.com/thompson/patient/events?key=lHKJCBuCrsxq8eux3QHywNL84QCWd5lKG046aBungs5&pid=5d2fe002f97602af0c8d5314')
-      .then(response => {this.items = response.data.data})
+      .get(url)
+      .then(response => {this.items = response.data.data});
   }
 }
 </script>
 
 <style>
+  h3 {
+    text-align: center;
+    margin-top: 50px;
+  }
   
 </style>

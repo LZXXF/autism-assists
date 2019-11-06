@@ -10,12 +10,15 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/Login.css'
+import VCharts from 'v-charts'
 //import Element from 'element-ui'
 //import 'elment-ui/lib/theme-chalk/index.css'
 
 Vue.use(BootstrapVue)
 
 Vue.use(VueAxios, axios)
+
+Vue.use(VCharts)
 
 //Vue.use(Element)
 
