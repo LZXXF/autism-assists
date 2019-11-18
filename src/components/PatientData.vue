@@ -25,11 +25,8 @@
               <td> {{ item.active }} </td>
               <td><router-link :to = "'/PatientEventData/' + item._id + '/' + item.firstname + '/' + item.lastname">View Events Data</router-link></td>
               <td><router-link :to = "'/SleepCharts/' + item._id + '/' + item.firstname + '/' + item.lastname">View Sleep Charts</router-link></td>
-
-              <!--
-              <td><router-link to = "/Params/123">params</router-link></td>
-              <td><a :href = "'/#/PatientEventData?patientId=' + item._id">View Events Data</a></td>
-              -->
+              <td><router-link :to = "'/SleepBarCharts/' + item._id + '/' + item.firstname + '/' + item.lastname">Sleep Bar Charts</router-link></td>
+              <td><router-link :to = "'/CalendarHeatmap/' + item._id">Activity Heatmap</router-link></td>
           </tr>
       </tbody>
     </table>

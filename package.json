@@ -18,9 +18,11 @@
     "bootstrap-vue": "^2.0.0",
     "echarts": "^4.4.0",
     "element-ui": "^2.12.0",
+    "jquery": "^3.4.1",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",
     "vue-axios": "2.1.4",
+    "vue-calendar-heatmap": "^0.8.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

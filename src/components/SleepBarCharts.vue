@@ -18,11 +18,9 @@
           <option v-for="d in chartsData" :value="d.index">{{d.date}}</option> 
       </select>
     </div>    
-    
-    
 
     <div v-if="StartDate !== null && EndDate !== null">
-      
+      <ve-histogram :data="chartData" :settings="chartSettints"></ve-histogram>
     </div>
 
   </div>
@@ -36,23 +34,55 @@ export default {
     return {
       StartDate: null,
       EndDate: null,
-      items: []
+      items: [],
+      chartSettints: {
+       yAxisType: ['Hour'],
+       yAxisName: ['Duration']
+      },
+      chartData: {
+        columns: ['date', 'light sleep', 'rem sleep', 'deep sleep'],
+        rows: []
+      }
     }
   },
 
   computed: {
     chartsData() {
-      var rows = [];
+      var row = [];
       var count = 0;
       for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].sleeps) {
-          rows[count] = {date: this.items[i].created_date, 
-                         sleep: this.items[i].sleeps.duration,
-                         index: count};
+          var light_sleep = 0;
+          var rem_sleep = 0;
+          var deep_sleep = 0;
+          if (this.items[i].sleeps[0].depth === 'Light sleep') {
+              light_sleep = this.items[i].sleeps[0].duration;
+          }
+          if (this.items[i].sleeps[0].depth === 'REM sleep') {
+              rem_sleep = this.items[i].sleeps[0].duration;
+          }
+          if (this.items[i].sleeps[0].depth === 'Deep sleep') {
+              deep_sleep = this.items[i].sleeps[0].duration;
+          }
+          row[count] = {'date': this.items[i].created_date, 
+                        'light sleep': light_sleep,
+                        'rem sleep': rem_sleep,
+                        'deep sleep': deep_sleep,
+                        'index': count};
           count = count + 1;
         }
       }
-      return rows;
+
+      if (this.StartDate !== null && this.EndDate !== null) {
+         var selectedData = [];
+         var index = 0;
+         for (var j = this.StartDate; j <= this.EndDate; j++) {
+           selectedData[index] = row[j];
+           index = index + 1;
+         }
+         this.chartData.rows = selectedData;
+      }
+      return row;
     }
   },
 

@@ -10,15 +10,22 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/Login.css'
+//import './assets/github_contribution'
+import './assets/github_contribution_graph.css'
 import VCharts from 'v-charts'
 //import Element from 'element-ui'
 //import 'elment-ui/lib/theme-chalk/index.css'
+import VueCalendarHeatmap from 'vue-calendar-heatmap'
+
 
 Vue.use(BootstrapVue)
 
 Vue.use(VueAxios, axios)
 
 Vue.use(VCharts)
+
+Vue.use(VueCalendarHeatmap)
+
 
 //Vue.use(Element)
 
